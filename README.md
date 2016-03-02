@@ -14,5 +14,3 @@ Optional Features:
 * [ ] Have an option to confirm whether or not a tweet or retweet should be deleted
 * [ ] Related Suggestions
 * [ ] Extending to Facebook
-
-# Optional (nice to have) user stories listed separately
