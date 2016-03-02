@@ -4,9 +4,11 @@ Cleanse is an application built to cleanse your social media. It will remove har
 # User Stories
 What we absolutely want to complete:
 * Use the Twitter API to find followers or retweeter
-   * show list of each person's tweets and content
-   * have an option to unfollow
-* Create blacklist of tweets
-* Have option to delete blacklist of tweets/retweets
-
+  * show list of each followers' tweets and content
+    * have an option to unfollow
+  * Create blacklist of tweets
+    
+Optional Features: 
+* Have an optiont to confirm whether or not a tweet or retweet should be deleted
+* Extending to Facebook
 # Optional (nice to have) user stories listed separately
