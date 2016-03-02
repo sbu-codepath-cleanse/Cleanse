@@ -1,5 +1,12 @@
-# freeStuff
+# Cleanse
 # Short description of your app
-freeStuff is literally what is sounds like. freeStuff is an application designed to bring FREE STUFF to its users. Many times, there are free things being offered right around us, but because of the lack of efficiently spread information, the news of the existence of this free stuff does not reach us. 
+Cleanse is an application built to cleanse your social media. It will remove harmful and offensive tweets and allow you to unfollow and remove any content that is potentially damaging for viewers. This app will allow your feed to look more professional and interview ready so that your feed will not put off any potential recruiters.  
 # User Stories
+What we absolutely want to complete:
+* Use the Twitter API to find followers or retweeter
+   * show list of each person's tweets and content
+   * have an option to unfollow
+* Create blacklist of tweets
+* Have option to delete blacklist of tweets/retweets
+
 # Optional (nice to have) user stories listed separately
