@@ -14,6 +14,14 @@ What we absolutely want to complete:
   * [ ] Create blacklist of tweets
     
 Optional Features: 
-* [ ] Have an option to confirm whether or not a tweet or retweet should be deleted
+* [ ] Have an option to confirm whether or not a tweet or retweet should be deleted 
 * [ ] Related Suggestions
 * [ ] Extending to Facebook
+* [ ] Review Blocks (for unblocking)
+API Endpoints:
+* <a href="https://dev.twitter.com/rest/reference/post/blocks/create">POST blocks/create</a>
+* <a href="https://dev.twitter.com/rest/reference/get/friends/list">GET friends/list (aka get people following user list) </a>
+* <a href="https://dev.twitter.com/rest/reference/get/followers/list">GET followers/list</a>
+* <a href="https://dev.twitter.com/rest/reference/get/statuses/user_timeline">GET statuses/user_timeline</a>
+* Optional API endpoints that may be used:
+  * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids">GET blocks/ids (list of active blocks of user)</a>
