@@ -1,14 +1,14 @@
 //
-//  freeStuffUITests.swift
-//  freeStuffUITests
+//  cleanseUITests.swift
+//  cleanseUITests
 //
-//  Created by Tim Barnard on 2/25/16.
-//  Copyright © 2016 Tim Barnard. All rights reserved.
+//  Created by Tim Barnard on 3/22/16.
+//  Copyright © 2016 cleanse co. All rights reserved.
 //
 
 import XCTest
 
-class freeStuffUITests: XCTestCase {
+class cleanseUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

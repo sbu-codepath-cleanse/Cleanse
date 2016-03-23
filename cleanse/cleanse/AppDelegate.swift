@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  freeStuff
+//  cleanse
 //
-//  Created by Tim Barnard on 2/25/16.
-//  Copyright © 2016 Tim Barnard. All rights reserved.
+//  Created by Tim Barnard on 3/22/16.
+//  Copyright © 2016 cleanse co. All rights reserved.
 //
 
 import UIKit
