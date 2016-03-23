@@ -44,19 +44,24 @@ Optional Features:
 # Considerations
 ### Product Pitch
 * Prepping for a job interview? Afraid your social media might show your bad side to your future employer. It's time to cleanse your social media with CLEANSE, an iOS app to make your cleansing experience as easy as possible. 
+
 ### Audience
 * People looking for jobs, internships
 * Students (particularly those applying to univeristy, grad school, medical school, etc)
+
 ### Core Functions
 * User of app will log in and interact with card swiping of Twitter profiles
 * Unfollow people deemed "not clean" by the user of the app
+
 ### Projected Final Demo
 * User will log into app
 * Swipe through list of friends to unfollow
 * Swipe through list of followers to block
 * User will logout
+
 ### Mobile Features Leveraged
 * Twitter API, gesture recognizers 
+
 ### Technical Concerns
 * Maintaining a stack so there is an option for undoing
 * Having a great UX for the users
