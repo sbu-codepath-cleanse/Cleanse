@@ -19,6 +19,12 @@ Optional Features:
 * [ ] Extending to Facebook
 * [ ] Review Blocks (for unblocking)
 
+#Collection Structure
+* Table: Cleansers
+  * Columns Needed:
+    * Twitter Id (Unique identifier provided by Twitter API)
+    * (Optional ?) Twitter handel
+
 #API Endpoints
 * <a href="https://dev.twitter.com/rest/reference/get/friends/list">GET friends/list (aka get people following current user list) </a>
 * <a href="https://dev.twitter.com/rest/reference/post/blocks/create">POST blocks/create</a>
@@ -37,8 +43,20 @@ Optional Features:
 
 # Considerations
 ### Product Pitch
+* Prepping for a job interview? Afraid your social media might show your bad side to your future employer. It's time to cleanse your social media with CLEANSE, an iOS app to make your cleansing experience as easy as possible. 
 ### Audience
+* People looking for jobs, internships
+* Students (particularly those applying to univeristy, grad school, medical school, etc)
 ### Core Functions
-### Projected Final 
+* User of app will log in and interact with card swiping of Twitter profiles
+* Unfollow people deemed "not clean" by the user of the app
+### Projected Final Demo
+* User will log into app
+* Swipe through list of friends to unfollow
+* Swipe through list of followers to block
+* User will logout
 ### Mobile Features Leveraged
+* Twitter API, gesture recognizers 
 ### Technical Concerns
+* Maintaining a stack so there is an option for undoing
+* Having a great UX for the users
