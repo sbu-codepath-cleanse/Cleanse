@@ -22,24 +22,25 @@ Optional Features:
 #Collection Structure/ Data Schema
 * 3 Collections in Total: 
    * Cleansers
-     * Columns:     
-       * twitter_id (Unique identifier provided by Twitter API)
-       * num_cleansed
-       * id of element in database collection
-       * (Optional ?) Twitter handle
+     * Columns:
+        * twitter_id (Unique identifier provided by Twitter API)
+        * num_cleansed
+        * id of element in database collection
+        * (Optional ?) Twitter handle
    * Cleansed: Twitter accounts that have been cleaned by a particular cleanser
      * Columns: 
-       * twitter_id (of the person who has been cleansed from the cleanser's twitter timeline)
-       * cleanser_id (twitter id of cleansed person) 
-       * date_cleansed (timestamp of when person was cleansed <- ideally cleansed database will delete all cleansed people after a certain period of time [probably 30 days] to free space in collection) 
-       * _id of element in collection
+        * twitter_id (of the person who has been cleansed from the cleanser's twitter timeline)
+        * cleanser_id (twitter id of cleansed person) 
+        * date_cleansed (timestamp of when person was cleansed <- ideally cleansed database will delete all cleansed people after a certain period of time [probably 30 days] to free space in collection) 
+        * _id of element in collection
    * Approved: Twitter people who have been approved by a particular cleanser
      * Keys:
-       * twitter_id (twitter id of person approved) 
-       * cleanser_id (twitter id of person who approved this twitter account) 
-       * date_approved (timestamp of date approved action took place <- Ideally after a period of time, elements will be trimmed down)
-       * _id of the element in the collection 
+        * twitter_id (twitter id of person approved) 
+        * cleanser_id (twitter id of person who approved this twitter account) 
+        * date_approved (timestamp of date approved action took place <- Ideally after a period of time, elements will be trimmed down)
+        * _id of the element in the collection 
 <img src="data_schema.png"> </img>
+
 #API Endpoints
 * <a href="https://dev.twitter.com/rest/reference/get/friends/list">GET friends/list (aka get people following current user list) </a>
 * <a href="https://dev.twitter.com/rest/reference/post/blocks/create">POST blocks/create</a>
