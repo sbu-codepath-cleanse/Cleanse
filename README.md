@@ -22,7 +22,7 @@ Optional Features:
 #Collection Structure/ Data Schema
 * 3 Collections in Total: 
    * Cleansers
-     * Columns:
+     * Columns:     
        * twitter_id (Unique identifier provided by Twitter API)
        * num_cleansed
        * id of element in database collection

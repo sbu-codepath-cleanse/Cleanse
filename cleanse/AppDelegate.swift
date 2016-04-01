@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    // set up parse
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+            // Initialize Parse
+            // Set applicationId and server based on the values in the Heroku settings.
+            // clientKey is not used on Parse open source unless explicitly configured
+            Parse.initializeWithConfiguration(
+                ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                    configuration.applicationId = "aldAorskjfl8jk2l3ho2iNoY3rEx5bl2PrSpo"
+                    configuration.clientKey = nil  // set to nil assuming you have not set clientKey
+                    configuration.server = "http://yourappname.herokuapp.com/parse"
+                })
+            )
+        return true;
+                
     }
-
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
