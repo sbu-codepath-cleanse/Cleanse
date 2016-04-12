@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'cleanse' do
 pod 'Parse'
+pod 'MDCSwipeToChoose'
 end
 
 target 'cleanseTests' do
