@@ -148,7 +148,7 @@
                                 <rect key="frame" x="0.0" y="307" width="600" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="118" id="02e-SO-eLn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="118" id="02e-SO-eLn" customClass="TwitterCell" customModule="cleanse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="02e-SO-eLn" id="l9D-Hc-QK3">
@@ -191,6 +191,18 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.45882352939999999" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="40K" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwd-sS-XZb">
+                                                    <rect key="frame" x="358" y="86" width="43" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="40K" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwa-zm-o9a">
+                                                    <rect key="frame" x="258" y="87" width="35" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="g51-8x-HvU" firstAttribute="trailing" secondItem="l9D-Hc-QK3" secondAttribute="trailingMargin" constant="5" id="BVQ-UD-wyn"/>
@@ -202,7 +214,9 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="g51-8x-HvU" secondAttribute="trailing" constant="10" id="Rwy-9b-Tz6"/>
                                                 <constraint firstItem="crg-GE-Zz3" firstAttribute="leading" secondItem="mAK-F6-DRH" secondAttribute="trailing" constant="70" id="bJ9-ra-K7O"/>
                                                 <constraint firstItem="mAK-F6-DRH" firstAttribute="top" secondItem="SrH-Bj-QpW" secondAttribute="bottom" constant="-20" id="ePQ-AB-xJF"/>
+                                                <constraint firstItem="Vwd-sS-XZb" firstAttribute="leading" secondItem="crg-GE-Zz3" secondAttribute="trailing" constant="5" id="jyn-6M-LAf"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="CwH-WC-Mse" secondAttribute="bottom" constant="5" id="kAy-I9-wQo"/>
+                                                <constraint firstItem="Vwa-zm-o9a" firstAttribute="leading" secondItem="mAK-F6-DRH" secondAttribute="trailing" constant="5" id="lH0-bu-UQ6"/>
                                                 <constraint firstItem="crg-GE-Zz3" firstAttribute="leading" secondItem="mAK-F6-DRH" secondAttribute="trailing" constant="63" id="u4e-07-PjD"/>
                                                 <constraint firstItem="CwH-WC-Mse" firstAttribute="leading" secondItem="SrH-Bj-QpW" secondAttribute="leading" id="vbE-fB-mpn"/>
                                                 <constraint firstItem="rrl-U3-Rdo" firstAttribute="leading" secondItem="Mhn-RF-h2H" secondAttribute="trailing" constant="4" id="vml-5C-bgS"/>
@@ -219,6 +233,15 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="likeNumber" destination="Vwd-sS-XZb" id="rHD-tX-LD5"/>
+                                            <outlet property="retweetNumber" destination="Vwa-zm-o9a" id="HSA-6W-fgd"/>
+                                            <outlet property="tweetImage" destination="2ye-hL-wen" id="HEc-9y-At1"/>
+                                            <outlet property="tweetText" destination="SrH-Bj-QpW" id="oos-DK-jH0"/>
+                                            <outlet property="tweetTime" destination="g51-8x-HvU" id="pV4-QE-2xP"/>
+                                            <outlet property="tweetUser" destination="Mhn-RF-h2H" id="Khy-nZ-IqJ"/>
+                                            <outlet property="tweetUsername" destination="rrl-U3-Rdo" id="YoV-w8-lG4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

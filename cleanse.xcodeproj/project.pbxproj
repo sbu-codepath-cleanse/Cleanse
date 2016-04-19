@@ -15,6 +15,8 @@
 		B257A1F61CA21604004859D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B257A1F41CA21604004859D0 /* LaunchScreen.storyboard */; };
 		B257A2011CA21604004859D0 /* cleanseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257A2001CA21604004859D0 /* cleanseTests.swift */; };
 		B257A20C1CA21604004859D0 /* cleanseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257A20B1CA21604004859D0 /* cleanseUITests.swift */; };
+		B2CE3CC71CC6F715009C8167 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE3CC61CC6F715009C8167 /* LoginViewController.swift */; };
+		B2D5A0951CBDBF6400D30CBE /* TwitterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5A0941CBDBF6400D30CBE /* TwitterCell.swift */; };
 		F009782F1CD93D5E52BFB416 /* libPods-cleanseUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1775E05E3E54F303048174 /* libPods-cleanseUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		B257A2071CA21604004859D0 /* cleanseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cleanseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B257A20B1CA21604004859D0 /* cleanseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cleanseUITests.swift; sourceTree = "<group>"; };
 		B257A20D1CA21604004859D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2CE3CC61CC6F715009C8167 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B2D5A0941CBDBF6400D30CBE /* TwitterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterCell.swift; sourceTree = "<group>"; };
 		EB1775E05E3E54F303048174 /* libPods-cleanseUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cleanseUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAA38334DB940B880850335 /* Pods-cleanse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cleanse.release.xcconfig"; path = "Pods/Target Support Files/Pods-cleanse/Pods-cleanse.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,12 +133,10 @@
 		B257A1EA1CA21604004859D0 /* cleanse */ = {
 			isa = PBXGroup;
 			children = (
+				B2D5A0911CBDBD7700D30CBE /* View Controllers */,
 				B257A1EB1CA21604004859D0 /* AppDelegate.swift */,
-				B257A1ED1CA21604004859D0 /* ViewController.swift */,
-				B257A1EF1CA21604004859D0 /* Main.storyboard */,
-				B257A1F21CA21604004859D0 /* Assets.xcassets */,
-				B257A1F41CA21604004859D0 /* LaunchScreen.storyboard */,
-				B257A1F71CA21604004859D0 /* Info.plist */,
+				B2D5A0921CBDBDB400D30CBE /* APIs */,
+				B2D5A0931CBDBDBB00D30CBE /* Models */,
 			);
 			path = cleanse;
 			sourceTree = "<group>";
@@ -155,6 +157,34 @@
 				B257A20D1CA21604004859D0 /* Info.plist */,
 			);
 			path = cleanseUITests;
+			sourceTree = "<group>";
+		};
+		B2D5A0911CBDBD7700D30CBE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B257A1ED1CA21604004859D0 /* ViewController.swift */,
+				B2CE3CC61CC6F715009C8167 /* LoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B2D5A0921CBDBDB400D30CBE /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = APIs;
+			sourceTree = "<group>";
+		};
+		B2D5A0931CBDBDBB00D30CBE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B257A1EF1CA21604004859D0 /* Main.storyboard */,
+				B257A1F21CA21604004859D0 /* Assets.xcassets */,
+				B257A1F41CA21604004859D0 /* LaunchScreen.storyboard */,
+				B257A1F71CA21604004859D0 /* Info.plist */,
+				B2D5A0941CBDBF6400D30CBE /* TwitterCell.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,7 +401,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CE3CC71CC6F715009C8167 /* LoginViewController.swift in Sources */,
 				B257A1EE1CA21604004859D0 /* ViewController.swift in Sources */,
+				B2D5A0951CBDBF6400D30CBE /* TwitterCell.swift in Sources */,
 				B257A1EC1CA21604004859D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
