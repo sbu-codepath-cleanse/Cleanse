@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F6E3BFA1CC6F55A00937584 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E3BF91CC6F55A00937584 /* LoginViewController.swift */; };
 		7DF82C6BDB630F571CEB2040 /* Pods_cleanse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B377C7BA05B7ADCB8836DE7 /* Pods_cleanse.framework */; };
 		B257A1EC1CA21604004859D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257A1EB1CA21604004859D0 /* AppDelegate.swift */; };
 		B257A1EE1CA21604004859D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257A1ED1CA21604004859D0 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F6E3BF91CC6F55A00937584 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Cleanse/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		452F80C9E00312B36416FA8B /* Pods-cleanseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cleanseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cleanseUITests/Pods-cleanseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4B377C7BA05B7ADCB8836DE7 /* Pods_cleanse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cleanse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0523DA3F88DA9B85FA65DB /* Pods-cleanse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cleanse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cleanse/Pods-cleanse.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				B257A1F21CA21604004859D0 /* Assets.xcassets */,
 				B257A1F41CA21604004859D0 /* LaunchScreen.storyboard */,
 				B257A1F71CA21604004859D0 /* Info.plist */,
+				2F6E3BF91CC6F55A00937584 /* LoginViewController.swift */,
 			);
 			path = cleanse;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6E3BFA1CC6F55A00937584 /* LoginViewController.swift in Sources */,
 				B257A1EE1CA21604004859D0 /* ViewController.swift in Sources */,
 				B257A1EC1CA21604004859D0 /* AppDelegate.swift in Sources */,
 			);

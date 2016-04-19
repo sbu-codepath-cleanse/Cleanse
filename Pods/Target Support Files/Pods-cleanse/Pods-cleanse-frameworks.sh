@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-cleanse/Bolts.framework"
+  install_framework "Pods-cleanse/MDCSwipeToChoose.framework"
   install_framework "Pods-cleanse/Parse.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-cleanse/Bolts.framework"
+  install_framework "Pods-cleanse/MDCSwipeToChoose.framework"
   install_framework "Pods-cleanse/Parse.framework"
 fi

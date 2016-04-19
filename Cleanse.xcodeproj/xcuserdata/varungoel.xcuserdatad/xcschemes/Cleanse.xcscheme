@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2FA859B61CB6A1400027D068"
-               BuildableName = "Cleanse.app"
-               BlueprintName = "Cleanse"
-               ReferencedContainer = "container:Cleanse.xcodeproj">
+               BlueprintIdentifier = "B257A1E71CA21604004859D0"
+               BuildableName = "cleanse.app"
+               BlueprintName = "cleanse"
+               ReferencedContainer = "container:cleanse.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,34 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B257A1FB1CA21604004859D0"
+               BuildableName = "cleanseTests.xctest"
+               BlueprintName = "cleanseTests"
+               ReferencedContainer = "container:cleanse.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B257A2061CA21604004859D0"
+               BuildableName = "cleanseUITests.xctest"
+               BlueprintName = "cleanseUITests"
+               ReferencedContainer = "container:cleanse.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2FA859B61CB6A1400027D068"
-            BuildableName = "Cleanse.app"
-            BlueprintName = "Cleanse"
-            ReferencedContainer = "container:Cleanse.xcodeproj">
+            BlueprintIdentifier = "B257A1E71CA21604004859D0"
+            BuildableName = "cleanse.app"
+            BlueprintName = "cleanse"
+            ReferencedContainer = "container:cleanse.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2FA859B61CB6A1400027D068"
-            BuildableName = "Cleanse.app"
-            BlueprintName = "Cleanse"
-            ReferencedContainer = "container:Cleanse.xcodeproj">
+            BlueprintIdentifier = "B257A1E71CA21604004859D0"
+            BuildableName = "cleanse.app"
+            BlueprintName = "cleanse"
+            ReferencedContainer = "container:cleanse.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2FA859B61CB6A1400027D068"
-            BuildableName = "Cleanse.app"
-            BlueprintName = "Cleanse"
-            ReferencedContainer = "container:Cleanse.xcodeproj">
+            BlueprintIdentifier = "B257A1E71CA21604004859D0"
+            BuildableName = "cleanse.app"
+            BlueprintName = "cleanse"
+            ReferencedContainer = "container:cleanse.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
