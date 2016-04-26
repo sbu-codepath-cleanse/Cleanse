@@ -89,6 +89,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-cleanse/Bolts.framework"
   install_framework "Pods-cleanse/MDCSwipeToChoose.framework"
   install_framework "Pods-cleanse/Parse.framework"
+  install_framework "Pods-cleanse/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-cleanse/AFNetworking.framework"
@@ -96,4 +97,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-cleanse/Bolts.framework"
   install_framework "Pods-cleanse/MDCSwipeToChoose.framework"
   install_framework "Pods-cleanse/Parse.framework"
+  install_framework "Pods-cleanse/pop.framework"
 fi
