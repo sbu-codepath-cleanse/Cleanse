@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7DF82C6BDB630F571CEB2040 /* Pods_cleanse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B377C7BA05B7ADCB8836DE7 /* Pods_cleanse.framework */; };
+		7FF7F27F1CC9A89800CDD14F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7F27E1CC9A89800CDD14F /* ProfileViewController.swift */; };
 		B257A1EC1CA21604004859D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257A1EB1CA21604004859D0 /* AppDelegate.swift */; };
 		B257A1EE1CA21604004859D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257A1ED1CA21604004859D0 /* ViewController.swift */; };
 		B257A1F11CA21604004859D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B257A1EF1CA21604004859D0 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		4B377C7BA05B7ADCB8836DE7 /* Pods_cleanse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cleanse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0523DA3F88DA9B85FA65DB /* Pods-cleanse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cleanse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cleanse/Pods-cleanse.debug.xcconfig"; sourceTree = "<group>"; };
 		76F4C8092CD0BAA0298D21F3 /* Pods-cleanseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cleanseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cleanseUITests/Pods-cleanseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7FF7F27E1CC9A89800CDD14F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B257A1E81CA21604004859D0 /* cleanse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cleanse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B257A1EB1CA21604004859D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B257A1ED1CA21604004859D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				B257A1ED1CA21604004859D0 /* ViewController.swift */,
 				B2CE3CC61CC6F715009C8167 /* LoginViewController.swift */,
+				7FF7F27E1CC9A89800CDD14F /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			files = (
 				B2CE3CC71CC6F715009C8167 /* LoginViewController.swift in Sources */,
 				B257A1EE1CA21604004859D0 /* ViewController.swift in Sources */,
+				7FF7F27F1CC9A89800CDD14F /* ProfileViewController.swift in Sources */,
 				B2D5A0951CBDBF6400D30CBE /* TwitterCell.swift in Sources */,
 				B257A1EC1CA21604004859D0 /* AppDelegate.swift in Sources */,
 			);

@@ -6,7 +6,8 @@ use_frameworks!
 target 'cleanse' do
 pod 'Parse'
 pod 'MDCSwipeToChoose'
-pod ‘BDBOAuth1Manager’
+pod 'BDBOAuth1Manager'
+pod 'pop'
 end
 
 target 'cleanseTests' do

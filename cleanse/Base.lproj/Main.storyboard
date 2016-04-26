@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -78,7 +78,7 @@
         <!--Profile Screen-->
         <scene sceneID="ADE-nJ-tyg">
             <objects>
-                <viewController title="Profile Screen" id="PNY-Ud-qg8" sceneMemberID="viewController">
+                <viewController title="Profile Screen" id="PNY-Ud-qg8" customClass="ProfileViewController" customModule="cleanse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HHx-vR-lbv"/>
                         <viewControllerLayoutGuide type="bottom" id="Tbn-C6-Nfk"/>
@@ -259,6 +259,16 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="FollowersCount" destination="DW0-8o-jR0" id="JfP-mb-XZb"/>
+                        <outlet property="FollowingCount" destination="uVK-Fv-lAT" id="3lY-yI-8Nl"/>
+                        <outlet property="TweetCount" destination="I3G-Cd-Koq" id="fM7-WC-vx5"/>
+                        <outlet property="bannerImage" destination="RwF-KD-nNt" id="tqa-gY-Bao"/>
+                        <outlet property="descriptLabel" destination="xav-am-TA3" id="9No-Mu-QAc"/>
+                        <outlet property="handleLabel" destination="Byd-tX-W8Z" id="utA-od-D3X"/>
+                        <outlet property="nameLabel" destination="bC2-BT-LEe" id="cZh-45-AxL"/>
+                        <outlet property="tableView" destination="b2l-nY-ZsE" id="wHW-jS-v1K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQT-EL-DaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
