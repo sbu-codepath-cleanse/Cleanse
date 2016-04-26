@@ -17,7 +17,7 @@ class TwitterCell: UITableViewCell {
     @IBOutlet weak var tweetTime: UILabel!
     @IBOutlet weak var retweetNumber: UILabel!
     @IBOutlet weak var likeNumber: UILabel!
-    
+  /*
     var tweet: Tweet! {
         didSet {
             
@@ -32,7 +32,7 @@ class TwitterCell: UITableViewCell {
             //timeLabel.text = tweet.timeSince
         }
     }
-    
+    */
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
