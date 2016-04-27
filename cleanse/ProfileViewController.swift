@@ -30,7 +30,36 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tweet = tweets![i!]
+        //manually populate tweets...
+        //of course this should be automated when a specific person is clicked
+        let twitterClient = TwitterClient.sharedInstance
+        
+        
+        /*
+        twitterClient.homeTimeline( {(tweets:[Tweet]) -> () in
+            self.tweets = tweets
+            
+            self.tableView.reloadData()
+            print (tweets)
+            },  failure: { (error:NSError) -> () in
+                print ("Error: \(error.localizedDescription)")
+                
+        });
+        
+        */
+        twitterClient.userTimeline("NBCTheVoice",  success: {(tweets:[Tweet]) -> () in
+            self.tweets = tweets
+            
+            self.tableView.reloadData()
+            //print (tweets)
+            },  failure: { (error:NSError) -> () in
+                print ("Error: \(error.localizedDescription)")
+                
+        });
+    
+
+        /*
+        let tweet = tweets![0]
         name = (tweet.user?.screenname)! as String!
         nameLabel.text = (tweet.user?.name)!
         handleLabel.text = "@\((tweet.user?.screenname)!)"
@@ -39,7 +68,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         FollowingCount.text = "\((tweet.user?.followingCount)!)"
         //bannerImage.setImageWithURL((tweet.user?.coverURL!))
         descriptLabel.text = (tweet.user?.description)!
-        
+        */
         /*
         nameLabel.text = tweet.user!.name
         retweetedLabel.text = "\(tweet.user!.screenname!) retweeted"
@@ -104,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     //I'm not sure this is necessary?
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCell", forIndexPath: indexPath) as! TwitterCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCellie", forIndexPath: indexPath) as! TwitterCell
         
         cell.tweet = tweets![indexPath.row]
         //cell.tweet_id = cell.tweet.tweetId

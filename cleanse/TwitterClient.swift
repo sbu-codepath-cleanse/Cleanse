@@ -17,7 +17,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         //log out first
         TwitterClient.sharedInstance.deauthorize()
-        TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "cleanserapp://oauth"), scope: nil, success: { (requestToken:BDBOAuth1Credential!) -> Void in
+        TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "mycleanserapp://oauth"), scope: nil, success: { (requestToken:BDBOAuth1Credential!) -> Void in
             
             
             let url = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
@@ -60,10 +60,9 @@ class TwitterClient: BDBOAuth1SessionManager {
     //declaring the closure
     func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> () ){
         //calling the closure
-        
-        
         //GETTING THE USER'S HOME TIMELINE
         GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
+            
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries)
             
@@ -77,12 +76,18 @@ class TwitterClient: BDBOAuth1SessionManager {
     func userTimeline(screenname:String, success: ([Tweet]) -> (), failure: (NSError) -> () ){
         //calling the closure
         //GETTING THE USER'S TIMELINE
-        GET("1.1/statuses/user_timeline.json?screen_name=\(screenname)", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
+        //GET("1.1/statuses/user_timeline.json?screen_name=\(screenname)", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
+        let param = ["screen_name":screenname]
+        
+        GET("1.1/statuses/user_timeline.json", parameters: param,success: {(task:NSURLSessionDataTask, response:AnyObject?)-> Void in
+            //print (param)
+            print (response as! [NSDictionary])
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries)
-            
+            //let tweets = [] as! [Tweet]
             success(tweets)
             }, failure: { (NSURLSessionDataTask,error: NSError) -> Void in
+                print (error.localizedDescription)
                 failure(error)
         })
     }

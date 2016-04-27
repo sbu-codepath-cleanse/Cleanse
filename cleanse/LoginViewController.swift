@@ -24,6 +24,23 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func onLoginButton(sender: AnyObject) {
+        let twitterClient = TwitterClient.sharedInstance
+        
+        // Login when button is clickecd
+        twitterClient.login({ () -> () in
+            //print ("LOGGED INTO mycleanserapp")
+            
+            self.performSegueWithIdentifier("loginSegue", sender: nil)
+            } ,
+            failure:{
+                (error:NSError) -> () in
+                
+                print ("error: \(error.localizedDescription)");
+                
+        }
+        )
+        /*
+        // this works (this is tested), but moving this into login in Twitter Client for more centralized model for Twitter API
         let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "3FI0PnleuC43mADE9ZTCMSR70", consumerSecret: "FYxAfY5XIiIAVQYfwWisa0ySKDAViVti84j9HIMCgMzanefvBu")
         
         twitterClient.deauthorize()
@@ -38,6 +55,7 @@ class LoginViewController: UIViewController {
             }) { (error: NSError!) in
                 print("error")
         }
+        */
     }
     
     
