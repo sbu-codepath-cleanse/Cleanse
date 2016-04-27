@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         TweetCount.text = "\((tweet.user?.tweetsCount)!)"
         FollowersCount.text = "\((tweet.user?.followerCount)!)"
         FollowingCount.text = "\((tweet.user?.followingCount)!)"
-        bannerImage.setImageWithURL((tweet.user?.coverURL!))
+        //bannerImage.setImageWithURL((tweet.user?.coverURL!))
         descriptLabel.text = (tweet.user?.description)!
         
         
@@ -60,10 +60,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.estimatedRowHeight = 120
         
         getTweets()
-        
-       // refresh = UIRefreshControl()
-       // refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
-       // tableView.insertSubview(refresh, atIndex: 0)
+
+        refresh = UIRefreshControl()
+        refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refresh, atIndex: 0)
+
         
 
         // Do any additional setup after loading the view.
