@@ -19,6 +19,7 @@
 		B257A20C1CA21604004859D0 /* cleanseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257A20B1CA21604004859D0 /* cleanseUITests.swift */; };
 		B2CE3CC71CC6F715009C8167 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE3CC61CC6F715009C8167 /* LoginViewController.swift */; };
 		B2D5A0951CBDBF6400D30CBE /* TwitterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5A0941CBDBF6400D30CBE /* TwitterCell.swift */; };
+		E36D4FD51CD037CA0033896C /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36D4FD41CD037CA0033896C /* Tweet.swift */; };
 		F009782F1CD93D5E52BFB416 /* libPods-cleanseUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1775E05E3E54F303048174 /* libPods-cleanseUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		B257A20D1CA21604004859D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2CE3CC61CC6F715009C8167 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B2D5A0941CBDBF6400D30CBE /* TwitterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterCell.swift; sourceTree = "<group>"; };
+		E36D4FD41CD037CA0033896C /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		EB1775E05E3E54F303048174 /* libPods-cleanseUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cleanseUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAA38334DB940B880850335 /* Pods-cleanse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cleanse.release.xcconfig"; path = "Pods/Target Support Files/Pods-cleanse/Pods-cleanse.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 				B257A1F71CA21604004859D0 /* Info.plist */,
 				B2D5A0941CBDBF6400D30CBE /* TwitterCell.swift */,
 				2FAFDEA51CD0306B0025554E /* User.swift */,
+				E36D4FD41CD037CA0033896C /* Tweet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				B2CE3CC71CC6F715009C8167 /* LoginViewController.swift in Sources */,
 				B257A1EE1CA21604004859D0 /* ViewController.swift in Sources */,
 				2FAFDEA61CD0306B0025554E /* User.swift in Sources */,
+				E36D4FD51CD037CA0033896C /* Tweet.swift in Sources */,
 				7FF7F27F1CC9A89800CDD14F /* ProfileViewController.swift in Sources */,
 				B2D5A0951CBDBF6400D30CBE /* TwitterCell.swift in Sources */,
 				B257A1EC1CA21604004859D0 /* AppDelegate.swift in Sources */,

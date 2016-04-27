@@ -21,16 +21,7 @@ class TwitterCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             
-            nameLabel.text = tweet.user!.name
-            retweetedLabel.text = "\(tweet.user!.screenname!) retweeted"
-            handleLabel.text = "@\(tweet.user!.screenname!)"
-            tweetLabel.text = tweet.text
-            profileImage.setImageWithURL(NSURL(string: tweet.user!.profileUrl! as String)!)
-            //tagline untouched
-            //retweetsLabel.text = String(tweet.retweetCount!)
-            //favoritesLabel.text = String(tweet.favoriteCount!)
-            //timeLabel.text = tweet.timeSince
-        }
+                  }
     }
     
     override func awakeFromNib() {

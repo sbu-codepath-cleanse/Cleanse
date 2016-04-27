@@ -39,6 +39,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         bannerImage.setImageWithURL((tweet.user?.coverURL!))
         descriptLabel.text = (tweet.user?.description)!
         
+        
+        nameLabel.text = tweet.user!.name
+        retweetedLabel.text = "\(tweet.user!.screenname!) retweeted"
+        handleLabel.text = "@\(tweet.user!.screenname!)"
+        tweetLabel.text = tweet.text
+        profileImage.setImageWithURL(NSURL(string: tweet.user!.profileUrl! as String)!)
+        tagline untouched
+        retweetsLabel.text = String(tweet.retweetCount!)
+        favoritesLabel.text = String(tweet.favoriteCount!)
+        timeLabel.text = tweet.timeSince
+
+        
+        
+        
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -46,9 +61,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         getTweets()
         
-        refresh = UIRefreshControl()
-        refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, atIndex: 0)
+       // refresh = UIRefreshControl()
+       // refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+       // tableView.insertSubview(refresh, atIndex: 0)
         
 
         // Do any additional setup after loading the view.
