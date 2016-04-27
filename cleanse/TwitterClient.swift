@@ -2,8 +2,7 @@ import UIKit
 import BDBOAuth1Manager
 
 class TwitterClient: BDBOAuth1SessionManager {
-    
-    
+
     
     //creating the request thing
     static let sharedInstance = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "3FI0PnleuC43mADE9ZTCMSR70", consumerSecret: "FYxAfY5XIiIAVQYfwWisa0ySKDAViVti84j9HIMCgMzanefvBu")
@@ -18,7 +17,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         //log out first
         TwitterClient.sharedInstance.deauthorize()
-        TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "twitterdemo://oauth"), scope: nil, success: { (requestToken:BDBOAuth1Credential!) -> Void in
+        TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "cleanserapp://oauth"), scope: nil, success: { (requestToken:BDBOAuth1Credential!) -> Void in
             
             
             let url = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
@@ -58,7 +57,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    //dieclaring the closure
+    //declaring the closure
     func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> () ){
         //calling the closure
         
@@ -73,6 +72,21 @@ class TwitterClient: BDBOAuth1SessionManager {
                 failure(error)
         })
     }
+    
+    //declaring the closure for other user's timeline
+    func userTimeline(screenname:String, success: ([Tweet]) -> (), failure: (NSError) -> () ){
+        //calling the closure
+        //GETTING THE USER'S TIMELINE
+        GET("1.1/statuses/user_timeline.json?screen_name=\(screenname)", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
+            let dictionaries = response as! [NSDictionary]
+            let tweets = Tweet.tweetsWithArray(dictionaries)
+            
+            success(tweets)
+            }, failure: { (NSURLSessionDataTask,error: NSError) -> Void in
+                failure(error)
+        })
+    }
+
     
     
     func currentAcount(success: (User) -> (), failure: (NSError) -> () ){

@@ -28,11 +28,11 @@ class LoginViewController: UIViewController {
         
         twitterClient.deauthorize()
         
-        twitterClient.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "cleanserapp://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) in
+        twitterClient.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "mycleanserapp://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) in
             print("I got token")
             
             let url = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
-            
+            print (url)
             UIApplication.sharedApplication().openURL(url)
             
             }) { (error: NSError!) in

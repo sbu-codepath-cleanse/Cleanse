@@ -21,16 +21,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    var name: String = ""
-    var i: Int?
-    var tweets: [Tweet]?
-    var refresh: UIRefreshControl
+    var name: String! = ""
+    var i: Int!
+    var tweets: [Tweet]!
+    var refresh: UIRefreshControl!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tweet = tweets![i!]
-        name = (tweet.user?.screenname)!
+        name = (tweet.user?.screenname)! as String!
         nameLabel.text = (tweet.user?.name)!
         handleLabel.text = "@\((tweet.user?.screenname)!)"
         TweetCount.text = "\((tweet.user?.tweetsCount)!)"
@@ -39,18 +40,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         //bannerImage.setImageWithURL((tweet.user?.coverURL!))
         descriptLabel.text = (tweet.user?.description)!
         
-        
+        /*
         nameLabel.text = tweet.user!.name
         retweetedLabel.text = "\(tweet.user!.screenname!) retweeted"
         handleLabel.text = "@\(tweet.user!.screenname!)"
         tweetLabel.text = tweet.text
         profileImage.setImageWithURL(NSURL(string: tweet.user!.profileUrl! as String)!)
-        tagline untouched
+        tagline = "untouched"
         retweetsLabel.text = String(tweet.retweetCount!)
         favoritesLabel.text = String(tweet.favoriteCount!)
         timeLabel.text = tweet.timeSince
 
-        
+        */
         
         
         
@@ -76,12 +77,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func getTweets() {
-        TwitterClient.sharedInstance.userTimeline(screenname) { (tweets, error) -> () in
+        TwitterClient.sharedInstance.userTimeline(name as String!, success: { (tweets:[Tweet]) -> () in
+        //TwitterClient.sharedInstance.userTimeline(screenname) { (tweets, error) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
-        }
+        },  failure: { (error:NSError) -> () in
+            print ("Error: \(error.localizedDescription)")
+            //self.dataloaded = false
+        })
     }
-    
+
     func onRefresh() {
         getTweets()
         self.refresh.endRefreshing()
@@ -97,12 +102,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     //I'm not sure this is necessary?
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCell", forIndexPath: indexPath) as! TweetCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCell", forIndexPath: indexPath) as! TwitterCell
         
         cell.tweet = tweets![indexPath.row]
-        cell.tweet_id = cell.tweet.tweetId
-        cell.tweetLabel.sizeToFit()
+        //cell.tweet_id = cell.tweet.tweetId
+        //cell.tweetLabel.sizeToFit()
         
         return cell
     }
