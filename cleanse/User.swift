@@ -22,10 +22,11 @@ class User: NSObject {
         
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
+        print (screenname)
         tagline = dictionary["description"] as? String
         tweetsCount = "tweet_count"
         followingCount = "following_count"
-        followerCount = "followe_count"
+        followerCount = "follower_count"
         
         let profileImageUrl = dictionary["profile_image_url_https"] as? String
         

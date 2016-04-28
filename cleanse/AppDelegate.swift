@@ -17,6 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        /*
+        if User._currentUser != nil{
+            print("not nil currentuser")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("CleanseNavigationController")
+            
+            window?.rootViewController = vc
+        }else{
+            print("not nil")
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(User.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue()){ (NSNotification) -> Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            
+            self.window?.rootViewController = vc
+        }
+        */
         return true
     }
     
@@ -44,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         print(url.description)
-        
+        /*
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "3FI0PnleuC43mADE9ZTCMSR70", consumerSecret: "FYxAfY5XIiIAVQYfwWisa0ySKDAViVti84j9HIMCgMzanefvBu")
         
@@ -59,6 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error")
         }
         
+        */
+        let twitterClient = TwitterClient.sharedInstance
+        twitterClient.deauthorize()
+        twitterClient.handleOpenUrl(url)
+        print (User._currentUser)
         return true
     }
     

@@ -30,7 +30,7 @@
                                 <state key="normal" title="Button" image="sign in"/>
                                 <connections>
                                     <action selector="onLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OqV-4Y-gT1"/>
-                                    <segue destination="PNY-Ud-qg8" kind="show" identifier="loginSegue" id="dUt-AS-wEx"/>
+                                    <segue destination="dYd-Mi-FEz" kind="presentation" identifier="loginSegue" id="NZ2-EN-bMp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -48,15 +48,32 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="aoX-Xs-Wfi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="-350"/>
+            <point key="canvasLocation" x="135" y="-406"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="chw-Xb-6lI">
+            <objects>
+                <navigationController id="dYd-Mi-FEz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ffx-DV-E26">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PNY-Ud-qg8" kind="relationship" relationship="rootViewController" id="tbZ-2P-mqk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZh-9h-WiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176" y="-559"/>
         </scene>
         <!--Main Screen-->
         <scene sceneID="GQT-wE-nx8">
             <objects>
-                <viewController title="Main Screen" id="LC8-Ee-lX7" sceneMemberID="viewController">
+                <viewController title="Main Screen" id="LC8-Ee-lX7" customClass="ViewController" customModule="cleanse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TMo-J3-vdw"/>
                         <viewControllerLayoutGuide type="bottom" id="WgZ-bF-gxF"/>
@@ -264,6 +281,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="CsK-jK-k7f"/>
                     <connections>
                         <outlet property="FollowersCount" destination="DW0-8o-jR0" id="JfP-mb-XZb"/>
                         <outlet property="FollowingCount" destination="uVK-Fv-lAT" id="3lY-yI-8Nl"/>

@@ -26,11 +26,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var tweets: [Tweet]!
     var refresh: UIRefreshControl!
     var dataloaded : Bool = false
-    
-    
+    var myprofile: NSDictionary = NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let cu = User._currentUser
+        print (cu?.screenname)
         //manually populate tweets...
         //of course this should be automated when a specific person is clicked
         let twitterClient = TwitterClient.sharedInstance
@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
 
         print ("testing user Timeline")
+        /*
         twitterClient.userTimeline("AmericanIdol" as! String!,  success: {(tweets:[Tweet]) -> () in
             self.tweets = tweets
             
@@ -59,8 +60,71 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 print ("Error: \(error.localizedDescription)")
                 
         });
-        
-        /*
+        */
+        print (User._currentUser)
+        if User._currentUser != nil{
+        var profile = twitterClient.getProfile(User._currentUser!.screenname as! String!, success: {(profile:NSDictionary)->( ) in
+            
+            self.myprofile = profile
+            
+            
+            
+            
+            
+            }, failure:{(error:NSError) -> () in
+                print ("Error: \(error.localizedDescription)")
+                
+        })
+        }
+        print ("manual profile")
+        var profile = twitterClient.getProfile("AmericanIdol" as! String!, success: {(profile:NSDictionary)->( ) in
+            
+            self.myprofile = profile
+            
+            self.FollowersCount.text = "Followers: " + String(self.myprofile["followers_count"]!)
+            self.FollowingCount.text = "Following: " + String(self.myprofile["friends_count"]!)
+            self.TweetCount.text = "Tweets: " + String(self.myprofile["statuses_count"]!)
+            self.nameLabel.text = String(self.myprofile["screen_name"]!)
+            self.descriptLabel.text = String(self.myprofile["description"]!)
+            
+            
+            let image_url =  NSURL(string:self.myprofile["profile_image_url_https"] as! String)
+            let photoRequest = NSURLRequest(URL: image_url!)
+            
+            /*   self.profiepic.setImageWithURLRequest(photoRequest, placeholderImage:nil,
+            success:{(photoRequest, photoResponse, image) -> Void in
+            
+            self.profiepic.image = image
+            
+            }, failure: { (photoRequest, imageResponse, error) -> Void in
+            // do something for the failure condition
+            })
+            
+            */
+            
+            let image_url2 =  NSURL(string:self.myprofile["profile_banner_url"] as!String)
+            let photoRequest2 = NSURLRequest(URL: image_url2!)
+
+/*
+self.headerimage.setImageWithURLRequest(photoRequest2, placeholderImage:nil,
+success:{(photoRequest, photoResponse, image) -> Void in
+
+self.headerimage.image = image
+
+}, failure: { (photoRequest, imageResponse, error) -> Void in
+// do something for the failure condition
+})
+
+
+*/
+
+            }, failure:{(error:NSError) -> () in
+                print("from profie view controller")
+                print ("Error: \(error.localizedDescription)")
+
+        })
+
+               /*
         let tweet = tweets![0]
         name = (tweet.user?.screenname)! as String!
         nameLabel.text = (tweet.user?.name)!

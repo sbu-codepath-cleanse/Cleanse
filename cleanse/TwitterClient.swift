@@ -7,6 +7,12 @@ class TwitterClient: BDBOAuth1SessionManager {
     //creating the request thing
     static let sharedInstance = TwitterClient(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "3FI0PnleuC43mADE9ZTCMSR70", consumerSecret: "FYxAfY5XIiIAVQYfwWisa0ySKDAViVti84j9HIMCgMzanefvBu")
     
+    // static var sharedInstance =  TwitterClient(baseURL: NSURL(string:"https://api.twitter.com")!, consumerKey: "SXqFBvQ0ibQxJLzANwYYF1jcN", consumerSecret: "7Dz4eSTJumYpYnPWdgKitBN60OTFgREsp6OdiNY6C3ihT1OS2l")
+    
+    
+    
+
+    
     var loginSuccess: (() -> ())?
     var loginFailure: ((NSError) ->  ())?
     
@@ -17,7 +23,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         //log out first
         TwitterClient.sharedInstance.deauthorize()
-        
+        //User._currentUser = nil
         TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "mycleanserapp://oauth"), scope: nil, success: { (requestToken:BDBOAuth1Credential!) -> Void in
             
             
@@ -48,6 +54,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             self.currentAcount({ (user: User) -> () in
                 User.currentUser = user
+                print ("gah")
+                print (User.currentUser)
                 self.loginSuccess?()
                 }, failure: { (error: NSError) -> () in
                     self.loginFailure?(error)
@@ -81,7 +89,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         let param = ["screen_name":screenname as! String!]
         GET("1.1/statuses/user_timeline.json", parameters: param,success: {(NSURLSessionDataTask, response:AnyObject?)-> Void in
             let dictionaries = response as! [NSDictionary]
-            print (response)
+            //print (response)
             let tweets = Tweet.tweetsWithArray(dictionaries)
 
             //let tweets = [] as! [Tweet]
@@ -93,36 +101,39 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     
+    func getProfile (screenname:String, success: NSDictionary-> (), failure:NSError -> () ){
+        
+        let params = ["screen_name": screenname]
+        
+        GET("1.1/users/show.json",parameters: params,progress: nil,success: {(task:NSURLSessionDataTask, response:AnyObject?)-> Void in
+           
+            let tweetdictionaries = response as! NSDictionary
+            
+            success(tweetdictionaries)
+            
+            },failure:{(task:NSURLSessionDataTask?,error:NSError )-> Void in
+                print("error in getProfile")
+                print (error.localizedDescription)
+                failure(error)
+                
+        });
+        //print (tweetdictionaries)
+        
+    }
      
      func currentAcount(success: (User) -> (), failure: (NSError) -> ()){
      //VERIFYING THE CREDENTIALS AND GETTING THE USER'S NAME AND STUFF
      GET("1.1/account/verify_credentials.json", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
-     let userDictionary = response as! NSDictionary
-     let user = User(dictionary: userDictionary)
+        let userDictionary = response as! NSDictionary
+        let user = User(dictionary: userDictionary)
      
      success(user)
      
      }, failure: { (NSURLSessionDataTask,error: NSError) -> Void in
-     failure(error)
+        failure(error)
      })
     }
- 
-// 
-//    
-//    
-//    func currentAcount(success: (User) -> (), failure: (NSError) -> () ){
-//        GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-//            let userDictionary = response as? NSDictionary
-//            
-//            let user = User(dictionary: userDictionary!)
-//            
-//            success(user)
-//            
-//            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-//                failure(error)
-//        })
-//    }
-    
+
     //when the user wants to retweet, this function is called
     func retweetTweet(params: NSDictionary?, completion: (tweets: Tweet?, error: NSError?) -> ()) {
         POST("1.1/statuses/retweet/\(params!["id"] as! Int).json", parameters: params, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
@@ -178,6 +189,30 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
         
     }
+    func getFriends(screenname:String, success: NSArray-> (), failure:NSError -> ()){
+        
+        
+        let params = ["screen_name":"twitterapi" as! String!]
+        print (screenname)
+        GET("1.1/friends/ids.json", parameters: params, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
+        
+            print (response as! String)
+            print (response as! NSArray )
+            let responsed = response as! NSDictionary
+            print ("my friends")
+            //print (tweetdictionaries)
+            print (responsed["ids"] as! NSArray)
+            
+            let tweetdictionaries = responsed["ids"] as!  NSArray
+            success(tweetdictionaries)
+            
+            },failure:{(task:NSURLSessionDataTask?,error:NSError )-> Void in
+                print (error.localizedDescription)
+                failure(error)
+                
+        });
+    }
+    
     
     
 }

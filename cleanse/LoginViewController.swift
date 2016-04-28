@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         
         // Login when button is clicked
         twitterClient.login({ () -> () in
-            //print ("LOGGED INTO mycleanserapp")
+            print ("LOGGED INTO mycleanserapp")
             
             self.performSegueWithIdentifier("loginSegue", sender: nil)
             } ,
