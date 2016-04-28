@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     @IBAction func onLoginButton(sender: AnyObject) {
         let twitterClient = TwitterClient.sharedInstance
         
-        // Login when button is clickecd
+        // Login when button is clicked
         twitterClient.login({ () -> () in
             //print ("LOGGED INTO mycleanserapp")
             

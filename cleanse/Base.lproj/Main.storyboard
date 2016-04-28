@@ -30,7 +30,7 @@
                                 <state key="normal" title="Button" image="sign in"/>
                                 <connections>
                                     <action selector="onLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OqV-4Y-gT1"/>
-                                    <segue destination="PNY-Ud-qg8" kind="presentation" id="QGg-C1-MpN"/>
+                                    <segue destination="PNY-Ud-qg8" kind="show" identifier="loginSegue" id="dUt-AS-wEx"/>
                                 </connections>
                             </button>
                         </subviews>

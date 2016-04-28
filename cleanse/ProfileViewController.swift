@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var i: Int!
     var tweets: [Tweet]!
     var refresh: UIRefreshControl!
+    var dataloaded : Bool = false
     
     
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let twitterClient = TwitterClient.sharedInstance
         
         
-        /*
+       
         twitterClient.homeTimeline( {(tweets:[Tweet]) -> () in
             self.tweets = tweets
             
@@ -45,19 +46,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 print ("Error: \(error.localizedDescription)")
                 
         });
-        
-        */
-        twitterClient.userTimeline("NBCTheVoice",  success: {(tweets:[Tweet]) -> () in
+
+
+        print ("testing user Timeline")
+        twitterClient.userTimeline("AmericanIdol" as! String!,  success: {(tweets:[Tweet]) -> () in
             self.tweets = tweets
             
             self.tableView.reloadData()
+            self.dataloaded = true
             //print (tweets)
             },  failure: { (error:NSError) -> () in
                 print ("Error: \(error.localizedDescription)")
                 
         });
-    
-
+        
         /*
         let tweet = tweets![0]
         name = (tweet.user?.screenname)! as String!
@@ -82,8 +84,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
         */
         
-        
-        
+        if (dataloaded){
+            print (self.tweets)
+        }
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -130,29 +133,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    //I'm not sure this is necessary?
-    /*
-
-
-@IBOutlet weak var tweetImage: UIImageView!
-@IBOutlet weak var tweetUser: UILabel!
-@IBOutlet weak var tweetUsername: UILabel!
-@IBOutlet weak var tweetText: UILabel!
-@IBOutlet weak var tweetTime: UILabel!
-@IBOutlet weak var retweetNumber: UILabel!
-@IBOutlet weak var likeNumber: UILabel!
-*/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCellie", forIndexPath: indexPath) as! TwitterCell
         //print (tweets.count)
         let tweet = tweets[indexPath.row]
         cell.tweet = tweets![indexPath.row]
-        cell.tweetUsername.text = tweet.screenname!
-        cell.tweetText.text = tweet.text!
+        cell.tweetUsername.text = tweet.screenname as! String!
+        cell.tweetText.text = tweet.text as! String!
         //cell.tweetTime = tweet.tweettime!
         // need to add the above in the Tweet class
-        cell.retweetNumber.text = tweet.retweetCount!
-        cell.likeNumber.text = tweet.favoriteCount!
+        cell.retweetNumber.text = tweet.retweetCount as! String!
+        cell.likeNumber.text = tweet.favoriteCount as! String!
         
         //cell.tweet_id = cell.tweet.tweetId
         //cell.tweetLabel.sizeToFit()

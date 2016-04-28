@@ -28,7 +28,7 @@ class Tweet: NSObject {
         user = User(dictionary: (dictionary["user"] as? NSDictionary)!)
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
-        screenname = dictionary["screenname"] as? String
+        screenname = dictionary["screen_name"] as? String
         replyToScreename = dictionary["in_reply_to_screen_name"] as? String
         
         retweetCount = "\((dictionary["retweet_count"])!)"
