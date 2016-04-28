@@ -18,6 +18,7 @@ class Tweet: NSObject {
     var createdAt: NSDate?
     var screenname: String?
     var replyToScreename: String?
+    var tweettime: String?
     
     var retweetCount: String?
     var favoriteCount: String?
@@ -41,7 +42,7 @@ class Tweet: NSObject {
     
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {
         var tweets = [Tweet]()
-        
+    
         for dictionary in array {
             tweets.append(Tweet(dictionary: dictionary))
         }

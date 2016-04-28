@@ -96,7 +96,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.insertSubview(refresh, atIndex: 0)
 
         
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -131,14 +131,32 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     //I'm not sure this is necessary?
-    
+    /*
+
+
+@IBOutlet weak var tweetImage: UIImageView!
+@IBOutlet weak var tweetUser: UILabel!
+@IBOutlet weak var tweetUsername: UILabel!
+@IBOutlet weak var tweetText: UILabel!
+@IBOutlet weak var tweetTime: UILabel!
+@IBOutlet weak var retweetNumber: UILabel!
+@IBOutlet weak var likeNumber: UILabel!
+*/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCellie", forIndexPath: indexPath) as! TwitterCell
-        
+        //print (tweets.count)
+        let tweet = tweets[indexPath.row]
         cell.tweet = tweets![indexPath.row]
+        cell.tweetUsername.text = tweet.screenname!
+        cell.tweetText.text = tweet.text!
+        //cell.tweetTime = tweet.tweettime!
+        // need to add the above in the Tweet class
+        cell.retweetNumber.text = tweet.retweetCount!
+        cell.likeNumber.text = tweet.favoriteCount!
+        
         //cell.tweet_id = cell.tweet.tweetId
         //cell.tweetLabel.sizeToFit()
-        
+        //cell.tweetImage =
         return cell
     }
     
