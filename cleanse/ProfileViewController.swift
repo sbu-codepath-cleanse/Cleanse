@@ -147,7 +147,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         //print (tweets.count)
         let tweet = tweets[indexPath.row]
         cell.tweet = tweets![indexPath.row]
-        cell.tweetUsername.text = tweet.screenname!
+       // cell.tweetUsername.text = tweet.screenname!
         cell.tweetText.text = tweet.text!
         //cell.tweetTime = tweet.tweettime!
         // need to add the above in the Tweet class
