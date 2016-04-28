@@ -79,13 +79,11 @@ class TwitterClient: BDBOAuth1SessionManager {
         //GETTING THE USER'S TIMELINE
         //GET("1.1/statuses/user_timeline.json?screen_name=\(screenname)", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
         let param = ["screen_name":screenname as! String!]
-        print(param)
         GET("1.1/statuses/user_timeline.json", parameters: param,success: {(NSURLSessionDataTask, response:AnyObject?)-> Void in
-            //print (param)
-           
             let dictionaries = response as! [NSDictionary]
             print (response)
             let tweets = Tweet.tweetsWithArray(dictionaries)
+
             //let tweets = [] as! [Tweet]
             success(tweets)
             }, failure: { (NSURLSessionDataTask,error: NSError) -> Void in
@@ -93,21 +91,37 @@ class TwitterClient: BDBOAuth1SessionManager {
                 failure(error)
         })
     }
-
     
     
-    func currentAcount(success: (User) -> (), failure: (NSError) -> () ){
-        GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            let userDictionary = response as? NSDictionary
-            
-            let user = User(dictionary: userDictionary!)
-            
-            success(user)
-            
-            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                failure(error)
-        })
+     
+     func currentAcount(success: (User) -> (), failure: (NSError) -> ()){
+     //VERIFYING THE CREDENTIALS AND GETTING THE USER'S NAME AND STUFF
+     GET("1.1/account/verify_credentials.json", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
+     let userDictionary = response as! NSDictionary
+     let user = User(dictionary: userDictionary)
+     
+     success(user)
+     
+     }, failure: { (NSURLSessionDataTask,error: NSError) -> Void in
+     failure(error)
+     })
     }
+ 
+// 
+//    
+//    
+//    func currentAcount(success: (User) -> (), failure: (NSError) -> () ){
+//        GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+//            let userDictionary = response as? NSDictionary
+//            
+//            let user = User(dictionary: userDictionary!)
+//            
+//            success(user)
+//            
+//            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+//                failure(error)
+//        })
+//    }
     
     //when the user wants to retweet, this function is called
     func retweetTweet(params: NSDictionary?, completion: (tweets: Tweet?, error: NSError?) -> ()) {

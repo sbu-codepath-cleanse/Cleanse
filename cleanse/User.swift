@@ -34,7 +34,6 @@ class User: NSObject {
         }
     }
     
-    
     static var _currentUser: User?
     
     class var currentUser: User?{

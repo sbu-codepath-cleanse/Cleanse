@@ -137,7 +137,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCellie", forIndexPath: indexPath) as! TwitterCell
         //print (tweets.count)
         let tweet = tweets[indexPath.row]
-        cell.tweet = tweets![indexPath.row]
+        cell.tweet = tweet
         cell.tweetUsername.text = tweet.screenname as! String!
         cell.tweetText.text = tweet.text as! String!
         //cell.tweetTime = tweet.tweettime!
