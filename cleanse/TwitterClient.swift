@@ -25,8 +25,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         TwitterClient.sharedInstance.deauthorize()
         //User._currentUser = nil
         TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "mycleanserapp://oauth"), scope: nil, success: { (requestToken:BDBOAuth1Credential!) -> Void in
-            
-            
             let url = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")!
             
             //open the URL
@@ -190,14 +188,13 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     func getFriends(screenname:String, success: NSArray-> (), failure:NSError -> ()){
-        
+        // workes when not alot of requests have been made
         
         let params = ["screen_name":"twitterapi" as! String!]
         print (screenname)
         GET("1.1/friends/ids.json", parameters: params, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
         
-            print (response as! String)
-            print (response as! NSArray )
+            
             let responsed = response as! NSDictionary
             print ("my friends")
             //print (tweetdictionaries)
@@ -211,6 +208,26 @@ class TwitterClient: BDBOAuth1SessionManager {
                 failure(error)
                 
         });
+    }
+    
+    
+    func destroy_unfollow(screenname:String, success: NSDictionary -> (), failure: NSError -> ()){
+        let params = ["screen_name":screenname]
+        
+        POST("1.1/friendships/destroy.json", parameters: params, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("destroying a friendship")
+            let cleansed = (response as! NSDictionary)
+            
+            print(cleansed)
+            success(cleansed)
+            
+            
+            }, failure:{(task:NSURLSessionDataTask?,error:NSError )-> Void in
+                print (error.localizedDescription)
+                failure(error)
+        });
+        
+        
     }
     
     

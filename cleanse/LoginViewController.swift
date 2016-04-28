@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //let twitterClient = TwitterClient.sharedInstance
+        //twitterClient.deauthorize()
         
         // Do any additional setup after loading the view.
     }
@@ -22,10 +24,9 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func onLoginButton(sender: AnyObject) {
-        let twitterClient = TwitterClient.sharedInstance
-        
+            let twitterClient = TwitterClient.sharedInstance
+        print ("logging in")
         // Login when button is clicked
         twitterClient.login({ () -> () in
             print ("LOGGED INTO mycleanserapp")
@@ -56,6 +57,7 @@ class LoginViewController: UIViewController {
                 print("error")
         }
         */
+        
     }
     
     

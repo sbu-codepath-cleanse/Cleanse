@@ -30,13 +30,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         let cu = User._currentUser
-        print (cu?.screenname)
+        print (cu)
+        
         //manually populate tweets...
         //of course this should be automated when a specific person is clicked
         let twitterClient = TwitterClient.sharedInstance
         
         
-       
+ /*
         twitterClient.homeTimeline( {(tweets:[Tweet]) -> () in
             self.tweets = tweets
             
@@ -46,11 +47,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 print ("Error: \(error.localizedDescription)")
                 
         });
-
-
-        print ("testing user Timeline")
-        /*
-        twitterClient.userTimeline("AmericanIdol" as! String!,  success: {(tweets:[Tweet]) -> () in
+*/
+        
+        twitterClient.userTimeline(name as! String!,  success: {(tweets:[Tweet]) -> () in
             self.tweets = tweets
             
             self.tableView.reloadData()
@@ -60,7 +59,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 print ("Error: \(error.localizedDescription)")
                 
         });
-        */
+
+        
+        
         print (User._currentUser)
         if User._currentUser != nil{
         var profile = twitterClient.getProfile(User._currentUser!.screenname as! String!, success: {(profile:NSDictionary)->( ) in
@@ -77,7 +78,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         })
         }
         print ("manual profile")
-        var profile = twitterClient.getProfile("AmericanIdol" as! String!, success: {(profile:NSDictionary)->( ) in
+        print (name)
+        print(name)
+        var profile = twitterClient.getProfile(name as! String!, success: {(profile:NSDictionary)->( ) in
             
             self.myprofile = profile
             
@@ -162,9 +165,12 @@ self.headerimage.image = image
         refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refresh, atIndex: 0)
 
+        tableView.reloadData()
         
         
         // Do any additional setup after loading the view.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -186,8 +192,13 @@ self.headerimage.image = image
     func onRefresh() {
         getTweets()
         self.refresh.endRefreshing()
+        self.tableView.reloadData()
     }
-    
+     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+      
+        return CGFloat(111.0)
+
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tweets != nil {
             return tweets!.count
@@ -200,6 +211,7 @@ self.headerimage.image = image
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TwitterCellie", forIndexPath: indexPath) as! TwitterCell
         //print (tweets.count)
+        
         let tweet = tweets[indexPath.row]
         cell.tweet = tweet
         cell.tweetUsername.text = tweet.screenname as! String!
