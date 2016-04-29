@@ -30,16 +30,17 @@
                                 <state key="normal" title="Button" image="sign in"/>
                                 <connections>
                                     <action selector="onLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8gb-Yd-oad"/>
-                                    <segue destination="H4G-Vw-Mez" kind="presentation" identifier="loginSegue" id="vnK-lr-3IR"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vyC-HW-DRZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="14" id="Y3i-XH-KLf"/>
                             <constraint firstItem="vyC-HW-DRZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dLc-7k-x9Z"/>
                             <constraint firstItem="ezu-hu-TLq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2Z-kr-VvQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vyC-HW-DRZ" secondAttribute="bottom" constant="254" id="oMh-la-de7"/>
                             <constraint firstItem="vyC-HW-DRZ" firstAttribute="top" secondItem="ezu-hu-TLq" secondAttribute="bottom" constant="118" id="rej-NW-BTP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vyC-HW-DRZ" secondAttribute="trailing" constant="14" id="rsH-SR-SBt"/>
                             <constraint firstItem="ezu-hu-TLq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vAz-8J-s6D"/>
                         </constraints>
                         <variation key="default">
@@ -49,6 +50,9 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <segue destination="H4G-Vw-Mez" kind="presentation" identifier="loginSegue" id="xfu-Ih-NDY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,12 +67,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="LC8-Ee-lX7" kind="relationship" relationship="rootViewController" id="L8g-AR-2DH"/>
+                        <segue destination="LC8-Ee-lX7" kind="relationship" relationship="rootViewController" id="RL5-oQ-Lou"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86i-31-l4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637" y="-742"/>
+            <point key="canvasLocation" x="1697" y="-794"/>
         </scene>
         <!--Cleansing Screen-->
         <scene sceneID="GQT-wE-nx8">
@@ -83,33 +87,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumb_up_gr" translatesAutoresizingMaskIntoConstraints="NO" id="elJ-2q-zNB">
-                                <rect key="frame" x="279" y="522" width="64" height="64"/>
+                                <rect key="frame" x="279" y="590" width="64" height="64"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumb_down_red" translatesAutoresizingMaskIntoConstraints="NO" id="2Ie-DI-Rkf">
+                                <rect key="frame" x="71" y="590" width="64" height="64"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9j-JS-bcV">
-                                <rect key="frame" x="20" y="82" width="368" height="414"/>
+                                <rect key="frame" x="0.0" y="64" width="415" height="518"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3j-nF-gLx">
-                                        <rect key="frame" x="50" y="44" width="268" height="241"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2P-ob-r44">
-                                        <rect key="frame" x="197" y="0.0" width="171" height="51"/>
-                                        <state key="normal" title="Profile"/>
-                                        <connections>
-                                            <segue destination="PNY-Ud-qg8" kind="push" id="aSx-Ap-Z4N"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trv-03-QLc">
-                                        <rect key="frame" x="56" y="325" width="256" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trv-03-QLc">
+                                        <rect key="frame" x="79" y="388" width="256" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3j-nF-gLx">
+                                        <rect key="frame" x="136" y="260" width="128" height="120"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kTa-dh-4Gd">
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="239"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2P-ob-r44">
+                                        <rect key="frame" x="236" y="434" width="171" height="51"/>
+                                        <state key="normal" title="Profile"/>
+                                        <connections>
+                                            <segue destination="PNY-Ud-qg8" kind="show" id="aSx-Ap-Z4N"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumb_down_red" translatesAutoresizingMaskIntoConstraints="NO" id="2Ie-DI-Rkf">
-                                <rect key="frame" x="71" y="522" width="64" height="64"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -119,6 +126,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="ProfileView" destination="x3j-nF-gLx" id="WWu-OX-yym"/>
+                        <outlet property="coverView" destination="kTa-dh-4Gd" id="jiI-TV-Xrb"/>
                         <outlet property="dislikebutton" destination="2Ie-DI-Rkf" id="CTY-sQ-jCi"/>
                         <outlet property="likebutton" destination="elJ-2q-zNB" id="WG5-uz-Uxt"/>
                         <outlet property="screenname" destination="Trv-03-QLc" id="gst-FZ-91d"/>
@@ -126,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtZ-KH-Cr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="344"/>
+            <point key="canvasLocation" x="673" y="354"/>
         </scene>
         <!--Profile Screen-->
         <scene sceneID="ADE-nJ-tyg">
@@ -329,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQT-EL-DaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1777" y="364"/>
+            <point key="canvasLocation" x="1492" y="332"/>
         </scene>
     </scenes>
     <resources>

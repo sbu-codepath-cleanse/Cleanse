@@ -9,10 +9,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     // static var sharedInstance =  TwitterClient(baseURL: NSURL(string:"https://api.twitter.com")!, consumerKey: "SXqFBvQ0ibQxJLzANwYYF1jcN", consumerSecret: "7Dz4eSTJumYpYnPWdgKitBN60OTFgREsp6OdiNY6C3ihT1OS2l")
     
-    
-    
-
-    
     var loginSuccess: (() -> ())?
     var loginFailure: ((NSError) ->  ())?
     
@@ -104,7 +100,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         let params = ["screen_name": screenname]
         
         GET("1.1/users/show.json",parameters: params,progress: nil,success: {(task:NSURLSessionDataTask, response:AnyObject?)-> Void in
-           
+            print (response)
             let tweetdictionaries = response as! NSDictionary
             
             success(tweetdictionaries)

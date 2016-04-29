@@ -7,6 +7,7 @@ target 'cleanse' do
 pod 'Parse'
 pod 'MDCSwipeToChoose'
 pod 'BDBOAuth1Manager'
+pod 'AFNetworking'
 pod 'pop'
 end
 

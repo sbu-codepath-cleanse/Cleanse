@@ -9,7 +9,7 @@
 //TWITTER HW PROF VIEW CONTROLLER
 
 import UIKit
-
+import AFNetworking
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -27,14 +27,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var refresh: UIRefreshControl!
     var dataloaded : Bool = false
     var myprofile: NSDictionary = NSDictionary()
+    let twitterClient = TwitterClient.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
-        let cu = User._currentUser
-        print (cu)
+     
         
         //manually populate tweets...
         //of course this should be automated when a specific person is clicked
-        let twitterClient = TwitterClient.sharedInstance
+        
         
         
  /*
@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 
         });
 */
-        
+        print("running  usertimeline")
         twitterClient.userTimeline(name as! String!,  success: {(tweets:[Tweet]) -> () in
             self.tweets = tweets
             
@@ -57,12 +57,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             //print (tweets)
             },  failure: { (error:NSError) -> () in
                 print ("Error: \(error.localizedDescription)")
+                 self.twitterClient.deauthorize()
                 
         });
 
         
         
         print (User._currentUser)
+        print ("profile")
         if User._currentUser != nil{
         var profile = twitterClient.getProfile(User._currentUser!.screenname as! String!, success: {(profile:NSDictionary)->( ) in
             
@@ -74,6 +76,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
             }, failure:{(error:NSError) -> () in
                 print ("Error: \(error.localizedDescription)")
+                 self.twitterClient.deauthorize()
                 
         })
         }
@@ -92,22 +95,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
             
             let image_url =  NSURL(string:self.myprofile["profile_image_url_https"] as! String)
+            print(self.myprofile["profile_image_url_https"])
+            print (image_url)
             let photoRequest = NSURLRequest(URL: image_url!)
             
-            /*   self.profiepic.setImageWithURLRequest(photoRequest, placeholderImage:nil,
-            success:{(photoRequest, photoResponse, image) -> Void in
-            
-            self.profiepic.image = image
-            
-            }, failure: { (photoRequest, imageResponse, error) -> Void in
-            // do something for the failure condition
-            })
-            
-            */
-            
-            let image_url2 =  NSURL(string:self.myprofile["profile_banner_url"] as!String)
-            let photoRequest2 = NSURLRequest(URL: image_url2!)
-
+        
 /*
 self.headerimage.setImageWithURLRequest(photoRequest2, placeholderImage:nil,
 success:{(photoRequest, photoResponse, image) -> Void in
@@ -124,6 +116,7 @@ self.headerimage.image = image
             }, failure:{(error:NSError) -> () in
                 print("from profie view controller")
                 print ("Error: \(error.localizedDescription)")
+            self.twitterClient.deauthorize()
 
         })
 
@@ -185,6 +178,7 @@ self.headerimage.image = image
             self.tableView.reloadData()
         },  failure: { (error:NSError) -> () in
             print ("Error: \(error.localizedDescription)")
+        self.twitterClient.deauthorize()
             //self.dataloaded = false
         })
     }
@@ -227,7 +221,7 @@ self.headerimage.image = image
         return cell
     }
     
-
+  
     /*
     // MARK: - Navigation
 

@@ -7,13 +7,14 @@
 //
 
 import UIKit
-
+import AFNetworking
 class ViewController: UIViewController {
     var myfriends: NSArray = []
     var unfollower : NSDictionary = [:]
     
     @IBOutlet weak var ProfileView: UIImageView!
     
+    @IBOutlet weak var coverView: UIImageView!
     @IBOutlet weak var screenname: UILabel!
     @IBOutlet weak var dislikebutton: UIImageView!
     
@@ -26,20 +27,35 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print (userarray[number])
+        print (userarray[number] as! String!)
         var profile = twitterClient.getProfile(userarray[number] as! String!, success: {(profile:NSDictionary)->( ) in
             
 
             self.screenname.text = String(profile["screen_name"]!)
-            let image_url =  NSURL(string:profile["profile_image_url_https"] as! String)
-            let photoRequest = NSURLRequest(URL: image_url!)
-            /*
+            var image_url =  NSURL(string:profile["profile_image_url_https"] as! String)
+            var photoRequest = NSURLRequest(URL: image_url!)
+            
             self.ProfileView.setImageWithURLRequest(photoRequest, placeholderImage:nil,
                 success:{(photoRequest, photoResponse, image) -> Void in
-                    self.image_tweet.image = image
+                    self.ProfileView.image = image
                 }, failure: { (photoRequest, imageResponse, error) -> Void in
                     // do something for the failure condition
+                    self.twitterClient.deauthorize()
             })
-            */
+            
+            
+            image_url =  NSURL(string:profile["profile_banner_url"] as! String)
+            photoRequest = NSURLRequest(URL: image_url!)
+            
+            self.coverView.setImageWithURLRequest(photoRequest, placeholderImage:nil,
+                success:{(photoRequest, photoResponse, image) -> Void in
+                    self.coverView.image = image
+                }, failure: { (photoRequest, imageResponse, error) -> Void in
+                    // do something for the failure condition
+                    self.twitterClient.deauthorize()
+            })
+
+            
             },
             failure:{(error:NSError) -> () in
         print("from profie view controller")
@@ -61,7 +77,6 @@ class ViewController: UIViewController {
         likebutton.userInteractionEnabled = true
 
         
-
   /*
 twitterClient.getFriends("lise__ho" as! String!, success: {(profile:NSArray)->( ) in
             
@@ -78,29 +93,32 @@ twitterClient.getFriends("lise__ho" as! String!, success: {(profile:NSArray)->( 
     */
     
     func like(gesture: UIGestureRecognizer) {
-    
         print ("yay")
-        
+        next()
     }
     func dislike(gesture: UIGestureRecognizer) {
         //2362618909
-        var x : String = userarray[number] as! String!
+        var x : String = userarray[number]
+        
+        print(x)
+        
         let unfollowed = self.twitterClient.destroy_unfollow(x, success:{(cleansed: NSDictionary) -> () in
-            
-            
+
             let unfollower = cleansed
             print (unfollower)
             },failure: { (error:NSError) -> () in
                 print ("Error: \(error.localizedDescription)")
+            self.twitterClient.deauthorize()
             }
             
         )
 
         print ("nay")
         
+        next()
     }
     func next(){
-        
+        number = number + 1
         
     }
     func didReceiveMemoryWarning() {

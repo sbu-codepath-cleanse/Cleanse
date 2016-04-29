@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let twitterClient = TwitterClient.sharedInstance
         twitterClient.deauthorize()
         twitterClient.handleOpenUrl(url)
-        print (User._currentUser)
+       // print (User._currentUser)
         return true
     }
     

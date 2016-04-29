@@ -8,7 +8,7 @@
 
 import UIKit
 import BDBOAuth1Manager
-
+import AFNetworking
 class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
